@@ -1,0 +1,43 @@
+<h1>Settings</h1>
+<div class="container bot-info">
+    <div class="bot-info">
+        {{#if isAdmin}}
+            <p><strong>Bot Username:</strong> {{bot.username}}</p>
+        {{/if}}
+            <p><strong>Bot Tag:</strong> {{bot.tag}}</p>
+            <p><strong>Status:</strong> {{bot.status}}</p>
+        {{#if isAdmin}}
+            <p><strong>Activity:</strong> {{bot.activity}}</p>
+            <p><strong>Guild Count:</strong> {{bot.guildCount}}</p>
+            <p><strong>User Count:</strong> {{bot.userCount}}</p>
+        {{/if}}
+    </div>
+</div>
+
+{{#if isAdmin}}
+    <div class="container">
+        <h4>Bot Settings</h4>
+        <form action="/settings/update" method="POST">
+            <div>
+                <label for="botname">Bot Name:</label>
+                <input type="text" id="botname" name="botname" value="{{bot.username}}">
+            </div>
+            <div>
+                <label for="aboutme">Activity Status:</label>
+                <textarea id="aboutme" name="aboutme">{{bot.aboutMe}}</textarea>
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+{{/if}}
+
+<h4>Web Settings</h4>
+
+<form action="/settings/theme" method="POST">
+    <label for="theme">Select Theme:</label>
+    <select name="theme" id="theme">
+        <option value="light" {{#if (eq theme "light")}}selected{{/if}}>Light</option>
+        <option value="dark" {{#if (eq theme "dark")}}selected{{/if}}>Dark</option>
+    </select>
+    <button type="submit">Change Theme</button>
+</form>

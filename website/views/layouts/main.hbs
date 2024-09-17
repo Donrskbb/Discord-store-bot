@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <!-- Dashboard Header -->
+    <header class="dashboard-header">
+        <div class="logo">
+            <img src="/icons/logo.png" alt="Dashboard Logo">
+            <h3>My Visual Verse</h3>
+        </div>
+
+        <nav class="navigation">
+            <ul>
+                {{#if isAuthenticated}}
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    {{#if isAdmin}}
+                        <li><a href="/users">Users</a></li>
+                        <li><a href="/stock">Stock</a></li>
+                    {{/if}}
+                    <li><a href="/settings">Settings</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+
+        <div class="profile-section">
+            <img src="{{discordUser.avatarURL}}" alt="User Profile" class="profile-avatar">
+            <div class="profile-dropdown">
+                <span>{{discordUser.username}}</span>
+                <div class="dropdown-content">
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        {{{body}}}
+    </main>
+</body>
+</html>

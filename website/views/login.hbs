@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+{{#if error}}
+    <div style="color: red;">
+        {{error}}
+    </div>
+{{/if}}
+<form action="/login" method="post">
+    <label for="username">Admin Username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Admin Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Login</button>
+</form>

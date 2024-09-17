@@ -1,0 +1,105 @@
+<div style="display: flex; flex-direction: row;">
+    <h1>User Details</h1>
+    {{#if user.isAdmin}}
+        <div class="admin-icon">
+            <img src="/icons/admin.png" alt="Admin">
+        </div>
+    {{/if}}
+</div>
+
+<div class="user-details-container">
+    <div class="user-info">
+        <p><strong>User ID:</strong> {{user.id}} ({{user.username}})</p>
+        <p><strong>Username:</strong> {{user.username}}</p>
+        <p><strong>Total Amount:</strong> €{{user.totalAmount}}</p>
+        <p><strong>Notes Count:</strong> {{user.notes.length}}</p>
+        <p><strong>Warnings Count:</strong> {{user.warnings.length}}</p>
+    </div>
+    <!-- User profile picture on the right -->
+    <div class="user-avatar">
+        <img src="{{user.avatarURL}}" alt="User Avatar">
+    </div>
+</div>
+
+<div class="user-purchases"></div>
+    <h2 class="user-purchases-h2">Purchases</h2>
+    {{#if user.userPurchases.length}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Amount (EUR)</th>
+                    <th>Sold By</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each user.userPurchases}}
+                    <tr>
+                        <td>{{this.product}}</td>
+                        <td>{{this.quantity}}x</td>
+                        <td>€{{this.amount}}</td>
+                        <td>{{this.person}}</td>
+                        <td>{{this.date}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>No purchase history found.</p>
+    {{/if}}
+</div>
+<h2>Notes</h2>
+<section class="top-spenders notes-section">
+    <h2 class="top-spenders-h2">{{user.notes.length}} Notes</h2>
+    <ul>
+        {{#each user.notes}}
+        <li>
+            <blockquote>{{this.content}}</blockquote> <p>(Created at: {{this.createdAt}})</p>
+            <form action="/user/{{../user.id}}/note/remove" method="post">
+                <input type="hidden" name="noteId" value="{{this._id}}">
+                <button type="submit">Remove</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+    <form class="add-form" action="/user/{{user.id}}/note/add" method="post">
+        <textarea id="noteContent" name="noteContent" required></textarea>
+        <button type="submit">Add</button>
+    </form>
+</section>
+<h2>Warnings</h2>
+<section class="top-spenders notes-section">
+    <h2 class="top-spenders-h2">{{user.warnings.length}} Warnings</h2>
+    <ul>
+        {{#each user.warnings}}
+        <li>
+            <blockquote>{{this.reason}}</blockquote> <p>(Issued by: {{this.issuedBy}}, Issued at: {{this.issuedAt}})</p>
+            <form action="/user/{{../user.id}}/warning/remove" method="post">
+                <input type="hidden" name="warningId" value="{{this._id}}">
+                <button type="submit">Remove</button>
+            </form>
+        </li>
+        {{/each}}
+    </ul>
+    <form class="add-form" action="/user/{{user.id}}/warning/add" method="post">
+        <textarea id="warningReason" name="warningReason" required></textarea>
+        <button type="submit">Add</button>
+    </form>
+</section>
+
+<section class="user-actions">
+    <h2>Actions</h2>
+    <div>
+        <form action="/user/{{user.id}}/ban" method="post"></form>
+            <button type="submit">Ban</button>
+        </form>
+        <form action="/user/{{user.id}}/timeout" method="post">
+            <button type="submit">Timeout</button>
+        </form>
+        <form action="/user/{{user.id}}/kick" method="post">
+            <button type="submit">Kick</button>
+        </form>
+    </div>
+</section>

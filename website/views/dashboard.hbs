@@ -1,0 +1,78 @@
+<div class="welcome-section">
+    <h2>Welcome, {{discordUser.username}}</h2>
+    <img src="{{discordUser.avatarURL}}" alt="User Avatar" class="user-avatar">
+    <p>Here’s an overview of your account and activity.</p>
+</div>
+<div class="dashboard-top">
+    <div class="dashboard-top-item">
+        {{#if topSpenders.length}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Top 10 Spenders</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each topSpenders}}
+                        <tr>
+                            <td>€ {{this.totalAmount}} - {{#if this.username}}{{this.username}}{{else}}Unknown User{{/if}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p>No spenders found.</p>
+        {{/if}}
+    </div>
+    <!-- Top 10 Popular Products Section -->
+    <div class="top-products dashboard-top-item">
+        {{#if topProducts.length}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Top 10 Popular Products</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each topProducts}}
+                        <tr>
+                            <td>{{this.totalQuantity}}x - {{this._id}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p>No product purchase history found.</p>
+        {{/if}}
+    </div>
+</div>
+<!-- User Purchases Section -->
+<div class="user-purchases">
+    <h2 class="user-purchases-h2">Your Purchases</h2>
+    {{#if userPurchases.length}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Amount (EUR)</th>
+                    <th>Sold By</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each userPurchases}}
+                    <tr>
+                        <td>{{this.product}}</td>
+                        <td>{{this.quantity}}x</td>
+                        <td>€ {{this.amount}}</td>
+                        <td>{{this.person}}</td>
+                        <td>{{this.date}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>No purchase history found.</p>
+    {{/if}}
+</div>

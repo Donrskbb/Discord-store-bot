@@ -1,0 +1,24 @@
+<h1>Nitro Stock</h1>
+
+{{#if nitroItems.length}}
+    <table>
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Description</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each nitroItems}}
+            <tr>
+                <td><a href="{{this.url}}" target="_blank">{{this.url}}</a></td>
+                <td>{{this.description}}</td>
+                <td>{{this.createdAt}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p>No Nitro stock available.</p>
+{{/if}}

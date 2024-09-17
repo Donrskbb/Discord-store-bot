@@ -1,0 +1,33 @@
+<h1>All Users</h1>
+<form method="GET" action="/users">
+    <input type="text" name="search" placeholder="Search users..." value="{{search}}">
+    <button type="submit">Search</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Username (UserID)</th>
+            <th>Total Spend</th>
+            <th>Notes</th>
+            <th>Warnings</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each users}}
+        <tr>
+            <td>
+                {{#if this.isAdmin}}
+                    <img src="/icons/admin.png" alt="Admin" style="width: 16px; height: 16px;"/> 
+                {{/if}}
+                {{#hasWarnings this.warningsCount 3}}
+                    <img src="/icons/warning.png" alt="Warning" style="width: 16px; height: 16px;"/>
+                {{/hasWarnings}}
+                <a href="/user/{{this.id}}">{{this.username}} ({{this.id}})</a>
+            </td>
+            <td>€ {{this.totalAmount}}</td>
+            <td>{{this.notesCount}}</td> <!-- Use notesCount here -->
+            <td>{{this.warningsCount}}</td> <!-- Use warningsCount here -->
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

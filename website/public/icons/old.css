@@ -1,0 +1,441 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+main {
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #007bff;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+strong {
+    color: #007bff;
+}
+
+/* Main Header Section */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff; /* Background color matching container */
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Softer shadow for consistency */
+}
+
+.dashboard-header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-header .logo img {
+    width: 40px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-header .logo:hover img {
+    transform: rotate(360deg);
+}
+
+.dashboard-header .logo h1 {
+    font-size: 1.5rem;
+    color: #ffffff; /* Logo text color matching h1 and h2 */
+}
+
+.dashboard-header .navigation ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.dashboard-header .navigation ul li {
+    margin-left: 20px;
+}
+
+.dashboard-header .navigation ul li a {
+    color: #ffffff; /* Navigation link color matching h1 and h2 */
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dashboard-header .navigation ul li a:hover {
+    background-color: #f9f9f9; /* Light background for hover state */
+    color: #007bff; /* Darker text color for hover state */
+    border-radius: 5px;
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.1);
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-dropdown span {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: #ffffff; /* Profile dropdown text color matching h1 and h2 */
+}
+
+.profile-dropdown:hover span {
+    color: #1abc9c;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff; /* Dropdown background matching container */
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow for consistency */
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #007bff; /* Dropdown link color matching h1 and h2 */
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f9f9f9; /* Light background for hover state */
+    color: #0056b3; /* Darker text color for hover state */
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container Styling */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* User Info Styles */
+.user-info {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.user-info h2 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.user-info p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+/* Table Styling */
+table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+table td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
+
+button:hover {
+    background-color: #007bff;
+}
+
+/* User Details Container */
+.user-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Admin Icon Styles */
+.admin-icon {
+    margin-left: 20px;
+}
+
+.admin-icon img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+/* User Avatar Styles */
+.user-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+/* Top Spenders Section */
+.top-spenders {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.top-spenders-h2 {
+    background-color: #007bff;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px;
+    
+}
+.top-spenders li {
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px;
+    border-top: 0.1px solid lightgray;
+}
+.top-spenders li:hover {
+    background-color: lightgray;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* .bot-info {
+HIER GEBLEVEN
+} */
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .dashboard-header .navigation ul {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #ecf0f1;
+    }
+
+    .dashboard-header .navigation.active ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #34495e;
+        width: 100%;
+    }
+
+    .dashboard-header .navigation ul li {
+        margin: 15px 0;
+    }
+
+    table, table th, table td {
+        display: block;
+        width: 100%;
+    }
+
+    table th, table td {
+        text-align: right;
+        padding: 10px;
+    }
+
+    table td a {
+        display: inline-block;
+    }
+
+    table td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        float: left;
+        text-transform: uppercase;
+        margin-right: 10px;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #e0e0e0;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-header .navigation ul {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: #007bff; /* Hamburger lines color matching h1 and h2 */
+    }
+
+    .dashboard-header .navigation.active ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #fff; /* Background color matching container */
+        width: 100%;
+    }
+
+    .dashboard-header .navigation ul li {
+        margin: 15px 0;
+    }
+
+    .dashboard-header .navigation ul li a {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+}
